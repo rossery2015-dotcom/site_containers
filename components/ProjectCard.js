@@ -5,6 +5,26 @@ import Popover from './Popover';
 import styles from './ProjectCard.module.css';
 
 export default function ProjectCard({ project }) {
+  const handleBadgeClick = (badgeText) => {
+    console.log('Badge clicked:', badgeText);
+    // Здесь можно добавить логику для обработки клика по бейджу
+  };
+
+  const handleMetaChipClick = (type, value) => {
+    console.log('MetaChip clicked:', type, value);
+    // Здесь можно добавить логику для обработки клика по мета-чипу
+  };
+
+  const handleTitleClick = () => {
+    console.log('Title clicked:', project.title);
+    // Здесь можно добавить логику для перехода к детальной странице проекта
+  };
+
+  const handlePriceClick = () => {
+    console.log('Price clicked:', project.price);
+    // Здесь можно добавить логику для показа калькулятора или модального окна
+  };
+
   return (
     <article className={styles.projectCard}>
       <div className={styles.projectCard__media}>
@@ -23,21 +43,40 @@ export default function ProjectCard({ project }) {
               text={badge.text}
               type={badge.type}
               icon={badge.icon}
+              onClick={() => handleBadgeClick(badge.text)}
             />
           ))}
         </div>
       </div>
       <div className={styles.projectCard__body}>
-        <h2 className={styles.projectCard__title}>{project.title}</h2>
+        <h2 
+          className={styles.projectCard__title}
+          onClick={handleTitleClick}
+          style={{ cursor: 'pointer' }}
+        >
+          {project.title}
+        </h2>
         <div className={styles.projectCard__meta}>
-          <MetaChip type="location">
+          <MetaChip 
+            type="location"
+            onClick={() => handleMetaChipClick('location', project.location)}
+          >
             {project.location}
           </MetaChip>
-          <MetaChip type="time">
+          <MetaChip 
+            type="time"
+            onClick={() => handleMetaChipClick('time', project.timeToCenter)}
+          >
             {project.timeToCenter}
           </MetaChip>
         </div>
-        <div className={styles.projectCard__price}>{project.price}</div>
+        <div 
+          className={styles.projectCard__price}
+          onClick={handlePriceClick}
+          style={{ cursor: 'pointer' }}
+        >
+          {project.price}
+        </div>
 
         <Popover
           totalApartments={project.totalApartments}

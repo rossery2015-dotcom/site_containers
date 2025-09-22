@@ -2,17 +2,21 @@
   display: flex; 
   align-items: center; 
   justify-content: space-between; 
-  margin-bottom: 10px; 
+  margin-bottom: 12px; 
   font-weight: 600; 
+  color: var(--text);
 }
 
 .link { 
   color: var(--accent); 
   text-decoration: none; 
   font-weight: 600; 
+  font-size: 14px;
+  transition: color 0.2s ease;
 }
 
 .link:hover { 
+  color: #4a9eff;
   text-decoration: underline; 
 }
 
@@ -25,10 +29,15 @@
 }
 
 .popover__list li { 
-  background: rgba(11,14,19,.8); 
+  background: rgba(11,14,19,.9); 
   border: 1px solid var(--border); 
   border-radius: 12px; 
   overflow: hidden; 
+  transition: background-color 0.2s ease;
+}
+
+.popover__list li:hover {
+  background: rgba(11,14,19,1);
 }
 
 .popover__list a { 
@@ -36,17 +45,25 @@
   grid-template-columns: 1fr auto auto; 
   gap: 12px; 
   align-items: center; 
-  padding: 10px 12px; 
+  padding: 12px 14px; 
   color: inherit; 
   text-decoration: none; 
   white-space: nowrap; 
   font-size: 13px; 
+  transition: background-color 0.2s ease;
+  cursor: pointer;
+}
+
+.popover__list a:hover { 
+  background: rgba(255,255,255,.04); 
 }
 
 .popover__list a span:first-child { 
   overflow: hidden; 
   text-overflow: ellipsis; 
   min-width: 0; 
+  color: var(--text);
+  font-weight: 500;
 }
 
 .popover__list .muted, 
@@ -54,26 +71,36 @@
   white-space: nowrap; 
 }
 
-.popover__list a:hover { 
-  background: rgba(255,255,255,.04); 
-}
-
 .popover__list .muted { 
   color: var(--muted); 
+  font-size: 12px;
 }
 
 .popover__list .price { 
   font-weight: 700; 
+  color: var(--text);
+  font-size: 13px;
 }
 
 .popover__footer { 
-  margin-top: 10px; 
+  margin-top: 12px; 
   font-size: 13px; 
+  color: var(--muted);
+  text-align: center;
 }
 
 @media (max-width: 640px) {
   .popover__list a { 
     font-size: 12px; 
     gap: 10px; 
+    padding: 10px 12px;
+  }
+  
+  .popover__list .muted {
+    font-size: 11px;
+  }
+  
+  .popover__list .price {
+    font-size: 12px;
   }
 }

@@ -2,7 +2,7 @@ import LocationIcon from './icons/LocationIcon';
 import TimeIcon from './icons/TimeIcon';
 import styles from './MetaChip.module.css';
 
-export default function MetaChip({ type, children, className = '' }) {
+export default function MetaChip({ type, children, className = '', onClick }) {
   const baseClasses = styles.metaChip;
   const classes = `${baseClasses} ${className}`.trim();
 
@@ -18,7 +18,7 @@ export default function MetaChip({ type, children, className = '' }) {
   };
 
   return (
-    <span className={classes}>
+    <span className={classes} onClick={onClick}>
       {getIcon()}
       {children}
     </span>
