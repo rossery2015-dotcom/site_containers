@@ -1,0 +1,24 @@
+.badge {
+  display: inline-flex; 
+  align-items: center; 
+  gap: 6px;
+  padding: 6px 10px; 
+  font-size: 12px; 
+  font-weight: 600;
+  color: var(--text); 
+  background: rgba(17,19,24,.7); 
+  border: 1px solid rgba(255,255,255,.12);
+  border-radius: 999px; 
+  backdrop-filter: blur(6px);
+}
+
+.badge--muted { 
+  color: var(--muted); 
+  background: rgba(17,19,24,.55); 
+}
+
+.badge--accent { 
+  background: rgba(22,119,255,.14); 
+  color: #e7f1ff; 
+  border-color: rgba(22,119,255,.35); 
+}
