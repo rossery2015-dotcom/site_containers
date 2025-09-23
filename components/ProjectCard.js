@@ -1,5 +1,6 @@
 'use client';
 
+import { useState, useEffect } from 'react';
 import Image from 'next/image';
 import Badge from './Badge';
 import MetaChip from './MetaChip';
@@ -7,28 +8,69 @@ import Popover from './Popover';
 import styles from './ProjectCard.module.css';
 
 export default function ProjectCard({ project }) {
-  const handleBadgeClick = (badgeText) => {
+  const [isMobile, setIsMobile] = useState(false);
+  const [isPopupOpen, setIsPopupOpen] = useState(false);
+
+  useEffect(() => {
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth <= 768);
+    };
+    
+    checkMobile();
+    window.addEventListener('resize', checkMobile);
+    
+    return () => window.removeEventListener('resize', checkMobile);
+  }, []);
+
+  const handleBadgeClick = (badgeText, e) => {
+    e.stopPropagation();
     console.log('Badge clicked:', badgeText);
     // Здесь можно добавить логику для обработки клика по бейджу
   };
 
-  const handleMetaChipClick = (type, value) => {
+  const handleMetaChipClick = (type, value, e) => {
+    e.stopPropagation();
     console.log('MetaChip clicked:', type, value);
     // Здесь можно добавить логику для обработки клика по мета-чипу
   };
 
-  const handleTitleClick = () => {
+  const handleTitleClick = (e) => {
+    e.stopPropagation();
     console.log('Title clicked:', project.title);
     // Здесь можно добавить логику для перехода к детальной странице проекта
   };
 
-  const handlePriceClick = () => {
+  const handlePriceClick = (e) => {
+    e.stopPropagation();
     console.log('Price clicked:', project.price);
     // Здесь можно добавить логику для показа калькулятора или модального окна
   };
 
+  const handleCardClick = () => {
+    if (isMobile) {
+      setIsPopupOpen(!isPopupOpen);
+    }
+  };
+
+  const handleCardMouseEnter = () => {
+    if (!isMobile) {
+      setIsPopupOpen(true);
+    }
+  };
+
+  const handleCardMouseLeave = () => {
+    if (!isMobile) {
+      setIsPopupOpen(false);
+    }
+  };
+
   return (
-    <article className={styles.projectCard}>
+    <article 
+      className={`${styles.projectCard} ${isMobile && isPopupOpen ? styles['mobile-popup-open'] : ''}`}
+      onClick={handleCardClick}
+      onMouseEnter={handleCardMouseEnter}
+      onMouseLeave={handleCardMouseLeave}
+    >
       <div className={styles.media}>
         <Image
           src={project.image}
@@ -45,7 +87,7 @@ export default function ProjectCard({ project }) {
               text={badge.text}
               type={badge.type}
               icon={badge.icon}
-              onClick={() => handleBadgeClick(badge.text)}
+              onClick={(e) => handleBadgeClick(badge.text, e)}
             />
           ))}
         </div>
@@ -61,13 +103,13 @@ export default function ProjectCard({ project }) {
         <div className={styles.meta}>
           <MetaChip 
             type="location"
-            onClick={() => handleMetaChipClick('location', project.location)}
+            onClick={(e) => handleMetaChipClick('location', project.location, e)}
           >
             {project.location}
           </MetaChip>
           <MetaChip 
             type="time"
-            onClick={() => handleMetaChipClick('time', project.timeToCenter)}
+            onClick={(e) => handleMetaChipClick('time', project.timeToCenter, e)}
           >
             {project.timeToCenter}
           </MetaChip>
@@ -80,7 +122,7 @@ export default function ProjectCard({ project }) {
           {project.price}
         </div>
 
-        <div className={styles.popover}>
+        <div className={`${styles.popover} ${isPopupOpen ? styles.visible : ''}`}>
           <Popover
             totalApartments={project.totalApartments}
             detailsLink={project.detailsLink}

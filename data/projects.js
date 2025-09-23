@@ -15,10 +15,10 @@ export const projects = [
       { text: "+2", type: "muted" }
     ],
     apartments: [
-      { type: "Студии", area: "от 22,29 м²", price: "от 3,8 млн ₽", link: "#studios-1" },
-      { type: "1-комнатные", area: "от 32,29 м²", price: "от 4,4 млн ₽", link: "#1room-1" },
-      { type: "2-комнатные", area: "от 48,42 м²", price: "от 6,5 млн ₽", link: "#2room-1" },
-      { type: "3-комнатные", area: "от 78,29 м²", price: "от 9,2 млн ₽", link: "#3room-1" }
+      { type: "One-room", area: "от 32,29 м²", price: "от 4,4 млн ₽", link: "https://example.com/one-room" },
+      { type: "Two-room", area: "от 48,42 м²", price: "от 6,5 млн ₽", link: "https://example.com/two-room" },
+      { type: "Three-room", area: "от 78,29 м²", price: "от 9,2 млн ₽", link: "https://example.com/three-room" },
+      { type: "Four-room", area: "от 95,50 м²", price: "от 12,5 млн ₽", link: "https://example.com/four-room" }
     ],
     decoration: "С отделкой"
   },
@@ -38,10 +38,10 @@ export const projects = [
       { text: "+1", type: "muted" }
     ],
     apartments: [
-      { type: "Студии", area: "от 22,29 м²", price: "от 3,8 млн ₽", link: "#studios-2" },
-      { type: "1-комнатные", area: "от 32,29 м²", price: "от 4,4 млн ₽", link: "#1room-2" },
-      { type: "2-комнатные", area: "от 48,42 м²", price: "от 6,5 млн ₽", link: "#2room-2" },
-      { type: "3-комнатные", area: "от 78,29 м²", price: "от 9,2 млн ₽", link: "#3room-2" }
+      { type: "One-room", area: "от 32,29 м²", price: "от 4,4 млн ₽", link: "https://example.com/one-room-2" },
+      { type: "Two-room", area: "от 48,42 м²", price: "от 6,5 млн ₽", link: "https://example.com/two-room-2" },
+      { type: "Three-room", area: "от 78,29 м²", price: "от 9,2 млн ₽", link: "https://example.com/three-room-2" },
+      { type: "Four-room", area: "от 95,50 м²", price: "от 12,5 млн ₽", link: "https://example.com/four-room-2" }
     ],
     decoration: "С отделкой"
   },
@@ -62,10 +62,10 @@ export const projects = [
       { text: "+2", type: "muted" }
     ],
     apartments: [
-      { type: "Студии", area: "от 20,00 м²", price: "от 4,0 млн ₽", link: "#studios-3" },
-      { type: "1-комнатные", area: "от 35,00 м²", price: "от 5,2 млн ₽", link: "#1room-3" },
-      { type: "2-комнатные", area: "от 50,00 м²", price: "от 7,1 млн ₽", link: "#2room-3" },
-      { type: "3-комнатные", area: "от 75,00 м²", price: "от 9,8 млн ₽", link: "#3room-3" }
+      { type: "One-room", area: "от 35,00 м²", price: "от 5,2 млн ₽", link: "https://example.com/one-room-3" },
+      { type: "Two-room", area: "от 50,00 м²", price: "от 7,1 млн ₽", link: "https://example.com/two-room-3" },
+      { type: "Three-room", area: "от 75,00 м²", price: "от 9,8 млн ₽", link: "https://example.com/three-room-3" },
+      { type: "Four-room", area: "от 100,00 м²", price: "от 13,5 млн ₽", link: "https://example.com/four-room-3" }
     ],
     decoration: "С отделкой"
   }

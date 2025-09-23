@@ -19,7 +19,12 @@ export default function Popover({
       <ul className={styles.list}>
         {apartments.map((apartment, index) => (
           <li key={index}>
-            <a href={apartment.link}>
+            <a 
+              href={apartment.link} 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className={styles.apartmentLink}
+            >
               <span>{apartment.type}</span>
               <span className={styles.muted}>{apartment.area}</span>
               <span className={styles.price}>{apartment.price}</span>
