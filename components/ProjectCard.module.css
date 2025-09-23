@@ -4,16 +4,21 @@
   overflow: hidden;
   box-shadow: var(--shadow);
   border: 1px solid var(--border);
-  transition: transform .25s ease, box-shadow .25s ease;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   position: relative;
   height: 100%;
   display: flex;
   flex-direction: column;
+  cursor: pointer;
 }
 
 .projectCard:hover { 
-  transform: translateY(-4px); 
-  box-shadow: 0 16px 44px rgba(0,0,0,.5); 
+  transform: translateY(-8px) scale(1.02); 
+  box-shadow: 0 20px 60px rgba(0,0,0,.6); 
+}
+
+.projectCard:active {
+  transform: translateY(-4px) scale(1.01);
 }
 
 .media { 
@@ -81,15 +86,25 @@
   left: 18px; 
   right: 18px; 
   bottom: 18px;
-  transform: translateY(8px); 
+  transform: translateY(100%); 
   opacity: 0; 
   pointer-events: none;
-  transition: opacity .25s ease, transform .25s ease; 
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
   z-index: 3;
+  will-change: transform, opacity;
 }
 
 .projectCard:hover .popover { 
   opacity: 1; 
   transform: translateY(0); 
   pointer-events: auto; 
+}
+
+/* Мобильные устройства - показываем popup по клику */
+@media (max-width: 768px) {
+  .projectCard.mobile-popup-open .popover {
+    opacity: 1;
+    transform: translateY(0);
+    pointer-events: auto;
+  }
 }
